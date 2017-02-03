@@ -1,0 +1,11 @@
+REGEDIT4
+
+;                                                                                                  
+; @author  Drew Chapin <drew@drewchapin.com>                                                       
+; @date    August 3rd, 2016                                                                        
+; @brief   Apply this and reboot in order to fix "Access Denied" error when trying to access C$    
+;          on remote Windows 7 PC. This patch should be applied to the remote PC, not the local one
+;                                                                                                  
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"LocalAccountTokenFilterPolicy"=dword:00000001

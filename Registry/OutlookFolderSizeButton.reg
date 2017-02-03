@@ -1,0 +1,10 @@
+REGEDIT4
+
+;                                                                                                  
+; @author Drew Chapin <drew@drewchapin.com>                                                        
+; @date   July 26th, 2016                                                                          
+; @brief  Enables the Folder Size button in Outlook.                                               
+;                                                                                                  
+
+[HKEY_CURRENT_USER\Software\Microsoft\Office\12.0\Outlook]
+"ChkFldrSize"=dword:00000001

@@ -1,0 +1,13 @@
+REGEDIT4
+
+;                                                                                                  
+; @author Drew Chapin <drew@drewchapin.com>                                                        
+; @date   Jul 26th, 2016                                                                           
+; @brief  Fixes issue where Outlook does not download the offline address book correctly.          
+;                                                                                                  
+
+[HKEY_CURRENT_USER\Software\Microsoft\Exchange\Exchange Provider]
+"Allow SRS Full OAB Download"=-
+"Limit SRS Full OAB Download"=-
+"Limit SRS Incremental Download"=-
+"Limit SRS Manual OAB Download"=-

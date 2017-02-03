@@ -1,0 +1,13 @@
+REGEDIT4
+
+;                                                                                                  
+; @author Drew Chapin <drew@drewchapin.com>                                                        
+; @date   July 26th, 2016                                                                          
+; @brief  Adds a "Scan/Repair" option to the context menu of PST files.                            
+;                                                                                                  
+
+[HKEY_CLASSES_ROOT\Outlook.File.pst.14\shell\Repair]
+@="Scan/Repair"
+
+[HKEY_CLASSES_ROOT\Outlook.File.pst.14\shell\Repair\command]
+@="\"C:\\Program Files (x86)\\Microsoft Office\\Office14\\SCANPST.EXE\" /in \"%1\""

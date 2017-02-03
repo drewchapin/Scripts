@@ -1,0 +1,9 @@
+REGEDIT4
+
+;                                                                                                  
+; @author Drew Chapin <drew@drewchapin.com>                                                        
+; @date   December 22nd, 2016                                                                      
+;                                                                                                  
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"EnableLinkedConnections"=dword:00000001
