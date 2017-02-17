@@ -1,9 +1,12 @@
 ##
 ## @file   ChangePassword.ps1
 ## @author Drew Chapin <drew@drewchapin.com>
-## @date   September 23rd, 2016
 ## @brief  Script to change local password on multiple remote computers.
 ##
+
+param (
+	[array] $Computer
+)
 
 function Get-Password( $prompt ) 
 {
@@ -11,9 +14,9 @@ function Get-Password( $prompt )
 	return [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pw))
 }
 
-$login_username = Read-Host "Login Username"
-$login_password = Get-Password("Login Password")
-$update_username = Read-Host "Update Username"
+$login_username = Read-Host "Admin Username"
+$login_password = Get-Password("Admin Password")
+$update_username = Read-Host "Username to Update"
 $update_password = Get-Password("New Password")
 $confirm = Get-Password("Confirm Password")
 
@@ -23,19 +26,29 @@ if( $update_password -ne $confirm )
 	exit
 }
 
-$computers = @("HOSTNAME1","HOSTNAME2","HOSTNAME3")
-
-foreach( $computer in $computers )
+if( !$Computer )
 {
-	Write-Host " [ -- ] $computer" -NoNewLine
+	$Computer = @("COMPUTER1","COMPUTER2","COMPUTER3","COMPUTER4")
+}
+
+Write-Host "Updating passwords..."
+	
+foreach( $item in $Computer )
+{
+	Write-Host " [ -- ] $item" -NoNewLine
 	try
 	{
-		$entry = New-Object System.DirectoryServices.DirectoryEntry("WinNT://$computer/$update_username",$login_username,$login_password)
+		$entry = New-Object System.DirectoryServices.DirectoryEntry("WinNT://$item/$update_username",$login_username,$login_password)
 		$entry.Invoke("SetPassword",$update_password)
-		Write-Host "`r [ OK ]" -ForegroundColor "green"
+		Write-Host "`r [" -NoNewLine
+		Write-Host "DONE" -ForegroundColor "green" -NoNewLine
+		Write-Host "]"
 	}
 	catch
 	{
-		Write-Host "`r [FAIL]" -ForegroundColor "red"
+		#Write-Host "`r [FAIL]" -ForegroundColor "red"
+		Write-Host "`r [" -NoNewLine
+		Write-Host "FAIL" -ForegroundColor "red" -NoNewLine
+		Write-Host "]"
 	}
 }
