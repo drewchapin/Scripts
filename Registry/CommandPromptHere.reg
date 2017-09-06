@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Folder\shell\cmdprompt]
+@="@shell32.dll,-8506"
+
+[HKEY_CLASSES_ROOT\Folder\shell\cmdprompt\command]
+@="cmd.exe /s /k pushd %1"
+
+[HKEY_CLASSES_ROOT\Directory\shell\cmdprompt]
+@="@shell32.dll,-8506"
+
+[HKEY_CLASSES_ROOT\Directory\shell\cmdprompt\command]
+@="cmd.exe /s /k pushd %1"
+
+
+[HKEY_CLASSES_ROOT\Drive\shell\cmdprompt]
+@="@shell32.dll,-8506"
+
+[HKEY_CLASSES_ROOT\Drive\shell\cmdprompt\command]
+@="cmd.exe /s /k pushd %1"
