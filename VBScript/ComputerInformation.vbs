@@ -1,11 +1,11 @@
-Dim Text
-
 Dim Network 
 Set Network = CreateObject("WScript.Network")
-Text = "Computer Name: " & vbCrLf & vbCrLf & vbTab & Network.ComputerName & vbCrLf & vbCrLf
 
 Dim NetworkAdapterConfig 
 Set NetworkAdapterConfig = GetObject("winmgmts:").InstancesOf("Win32_NetworkAdapterConfiguration")
+
+Dim Text
+Text = "Computer Name: " & vbCrLf & vbCrLf & vbTab & Network.ComputerName & vbCrLf & vbCrLf
 Text = Text & "IP Address(es):" & vbCrLf & vbCrLf
 
 Dim NIC
