@@ -1,0 +1,7 @@
+@echo off
+
+echo Turning off firewall. 
+netsh advfirewall set allprofiles state off
+
+echo Turning off notifications.
+netsh firewall set notifications mode = enable profile = all
